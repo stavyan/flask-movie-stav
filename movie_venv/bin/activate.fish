@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/stav/stav/python/movie-project/movie_venv"
+set -gx VIRTUAL_ENV "/Volumes/mac320/python/movie_project1/movie_venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
