@@ -5,7 +5,7 @@ from datetime import datetime
 import pymysql
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:617946852@127.0.0.1/movie"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:617946852@127.0.0.1:3306/movie"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 
 db = SQLAlchemy(app)
@@ -182,7 +182,7 @@ class Oplog(db.Model):
 
 
 if __name__ == "__main__":
-    # db.create_all()
+    db.create_all()
     role = Role(
         name="超级管理员",
         auths=""
