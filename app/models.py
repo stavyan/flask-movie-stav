@@ -188,7 +188,7 @@ if __name__ == "__main__":
     from werkzeug.security import generate_password_hash
 
     admin = Admin(
-        name="stav",
+        name="admin",
         pwd=generate_password_hash("123456"),
         is_super=0,
         role_id=1
