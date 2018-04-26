@@ -5,13 +5,16 @@ from app.admin.forms import LoginForm
 from app.models import Admin
 from functools import wraps
 
+
 def admin_login_req(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if "admin" not in session:
             return redirect(url_for("admin.login", next=request.url))
         return f(*args, **kwargs)
+
     return decorated_function
+
 
 @admin.route("/")
 @admin_login_req

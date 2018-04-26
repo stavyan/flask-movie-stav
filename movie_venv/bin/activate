@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Volumes/mac320/python/movie_project1/movie_venv"
+VIRTUAL_ENV="/Volumes/mac320/python/movie_project/movie_venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

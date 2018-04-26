@@ -4,6 +4,7 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
 from app.models import Admin
 
+
 class LoginForm(FlaskForm):
     """管理员登录表单"""
     account = StringField(

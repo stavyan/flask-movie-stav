@@ -1,4 +1,4 @@
-#!/Volumes/mac320/python/movie_project1/movie_venv/bin/python
+#!/Volumes/mac320/python/movie_project/movie_venv/bin/python
 
 # -*- coding: utf-8 -*-
 import re
