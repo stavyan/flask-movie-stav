@@ -18,19 +18,19 @@
                     <form role="form">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="input_title">片名</label>
-                                <input type="text" class="form-control" id="input_title" placeholder="请输入片名！">
+                                <label for="input_title">{{ form.title.label }}</label>
+                                {{ form.title }}
                             </div>
                             <div class="form-group">
-                                <label for="input_url">文件</label>
-                                <input type="file" id="input_url">
+                                <label for="input_url">{{ form.url.label }}</label>
+                                {{ form.url }}
                                 <div style="margin-top:5px;">
                                     <div id="moviecontainer"></div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="input_info">介绍</label>
-                                <textarea class="form-control" rows="10" id="input_info"></textarea>
+                                <label for="input_info">{{ form.info.label }}</label>
+                                {{ form.info }}
                             </div>
                             <div class="form-group">
                                 <label for="input_logo">封面</label>
