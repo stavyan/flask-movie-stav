@@ -5,7 +5,7 @@
         <h1>微电影管理系统</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> 电影管理</a></li>
-            <li class="active">添加电影</li>
+            <li class="active">修改电影</li>
         </ol>
     </section>
     <section class="content" id="showcontent">
@@ -13,7 +13,7 @@
             <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">添加电影</h3>
+                        <h3 class="box-title">修改电影</h3>
                     </div>
                     <form role="form" method="post" enctype="multipart/form-data">
                         <div class="box-body">
@@ -35,7 +35,7 @@
                             {% endfor %}
                             <div class="form-group">
                                 <label for="input_title">{{ form.title.label }}</label>
-                                {{ form.title }}
+                                {{ form.title(value=movie.title) }}
                                 {% for err in form.title.errors %}
                                     <div class="col-md-12">
                                         <font style="color: red;">{{ err }}</font>
@@ -44,7 +44,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="input_url">{{ form.url.label }}</label>
-                                {{ form.url }}{% for err in form.url.errors %}
+                                {{ form.url }}
+                                {% for err in form.url.errors %}
                                     <div class="col-md-12">
                                         <font style="color: red;">{{ err }}</font>
                                     </div>
@@ -70,7 +71,8 @@
                                         <font style="color: red;">{{ err }}</font>
                                     </div>
                                 {% endfor %}
-                                <img data-src="holder.js/262x166" style="margin-top:5px;" class="img-responsive"
+                                <img src="{{ url_for('static', filename='uploads/'+ movie.logo) }}"
+                                     style="margin-top:5px;" class="img-responsive"
                                      alt="">
                             </div>
                             <div class="form-group">
@@ -93,7 +95,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="input_area">{{ form.area.label }}</label>
-                                {{ form.area }}
+                                {{ form.area(value=movie.area) }}
                                 {% for err in form.area.errors %}
                                     <div class="col-md-12">
                                         <font style="color: red;">{{ err }}</font>
@@ -102,7 +104,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="input_length">{{ form.length.label }}</label>
-                                {{ form.length }}
+                                {{ form.length(value=movie.length) }}
                                 {% for err in form.length.errors %}
                                     <div class="col-md-12">
                                         <font style="color: red;">{{ err }}</font>
@@ -111,7 +113,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="input_release_time">{{ form.release_time.label }}</label>
-                                {{ form.release_time }}
+                                {{ form.release_time(value=movie.release_time) }}
                                 {% for err in form.release_time.errors %}
                                     <div class="col-md-12">
                                         <font style="color: red;">{{ err }}</font>
@@ -121,7 +123,7 @@
                         </div>
                         <div class="box-footer">
                             {{ form.csrf_token }}
-                            {{ form.submit }}
+                            {{ form.update }}
                         </div>
                     </form>
                 </div>
@@ -140,8 +142,8 @@
         jwplayer("moviecontainer").setup({
             flashplayer: "{{ url_for('static', filename='jwplayer/jwplayer.flash.swf') }}",
             playlist: [{
-                file: "{{ url_for('static', filename='video/htpy.mp4') }}",
-                title: "环太平洋"
+                file: "{{ url_for('static', filename='uploads/'+ movie.url) }}",
+                title: "{{ movie.title }}"
             }],
             modes: [{
                 type: "html5"
